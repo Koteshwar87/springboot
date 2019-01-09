@@ -1,8 +1,42 @@
-server:
+server:  
   port: 8680
-  
-spring:
-  profiles:
-    active:
-    - LOCAL
     
+management:
+  security:
+    enabled: false
+  ##https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html#production-ready-endpoints-security
+  endpoints:
+    web:
+      exposure:
+        include: info, health, env, metrics, threaddump, heapdump, shutdown
+    shutdown: 
+      enabled: true
+  endpoint:
+    health:
+      show-details: ALWAYS
+    
+spring:
+  application:
+    name: data-discovery-service
+    description: This modules enables discovery services.
+  main:
+    show_banner: false
+  profiles:
+    active: LOCAL
+  boot:
+    admin:
+      username: admin
+      password: admin
+  mail:
+    host: smtprelay.mhf.mhc
+    port: 25
+    properties:
+      mail:
+        smtp:
+          auth: false
+        starttls:
+          enable: true  
+##  security:
+##    user:
+##      name: eureka
+##     password: password

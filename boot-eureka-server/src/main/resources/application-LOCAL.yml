@@ -1,25 +1,25 @@
-
-
-spring:  
+spring:
+  profiles:
+    active: LOCAL
   boot:
     admin:
       client:
         url:
         - http://localhost:8080
-        
-management:
-  endpoints:
-    web:
-      exposure:
-        include: info, health, env, metrics, threaddump, heapdump, shutdown
+
 eureka:  
   instance:
-    hostname: localhost    
+    hostname: localhost
+    metadataMap: 
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}    
   client:
     registerWithEureka: true
     fetchRegistry: true
   serviceUrl: 
     defaultZone: http://localhost:8680/eureka/
   server:
+    ## Make the number of renewals required to prevent an emergency tiny (probably 0)
     renewalPercentThreshold: 0.1
-    enableSelfPreservation: false    
+    ## In any case, switch off this annoying feature (for development anyway).    
+    enableSelfPreservation: false      
