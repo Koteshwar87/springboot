@@ -1,0 +1,7 @@
+server:
+  port: 8580
+  
+spring:
+  profiles:
+    active:
+    - LOCAL

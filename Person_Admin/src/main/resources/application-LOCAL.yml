@@ -1,0 +1,23 @@
+server:
+  port: 8580
+
+spring:  
+  boot:
+    admin:
+      client:
+        url:
+        - http://localhost:8080
+  application:
+    name: person 
+    description: sample endpoints       
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, env, metrics, threaddump, heapdump, shutdown
+eureka:  
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8680/eureka
