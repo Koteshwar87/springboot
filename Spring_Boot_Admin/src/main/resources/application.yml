@@ -1,4 +1,35 @@
+
+
 spring:
+  application:
+    name: Boot admin
+    description: This modules enables Admin services.
+  main:
+    show_banner: false
   profiles:
-    active:
-    - LOCAL
+    active: LOCAL
+  mail:
+    host: smtprelay.mhf.mhc
+    port: 25
+    properties:
+      mail:
+        smtp:
+          auth: false
+        starttls:
+          enable: true  
+  boot:
+    admin:
+      notify:
+        mail:
+          to: koteshwara.sastry@spglobal.com
+          from: spdji-data-admin-service-dev@spglobal.com
+          enabled: true
+      routes:
+        endpoints: env, metrics, trace, jolokia, info, configprops        
+      discovery:
+        ignored-services: ${spring.application.name}
+  security:
+    user:
+      name: admin
+      password: admin
+

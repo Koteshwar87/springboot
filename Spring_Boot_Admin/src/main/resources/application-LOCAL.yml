@@ -1,20 +1,27 @@
-
 spring:
-  application:
-    name: spdji-data-admin-service
-    description: This modules enables Admin services.
+  profiles:
+    active: LOCAL
   mail:
     host: smtprelay.mhf.mhc
+    port: 25
+    properties:
+      mail:
+        smtp:
+          auth: false
+        starttls:
+          enable: true  
   boot:
     admin:
       notify:
         mail:
-          to: koteshwara.sastry@spglobal.com, rajagopal.uppati@spglobal.com
-          enabled: true
+          to: koteshwara.sastry@spglobal.com
           from: spdji-data-admin-service-dev@spglobal.com
-      routes:
-        endpoints: env, metrics, trace, jolokia, info, configprops 
-  security:
-    user: 
-      name: admin
-      password: admin
+          enabled: true
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://localhost:8680/eureka/}
+    register-with-eureka: false
