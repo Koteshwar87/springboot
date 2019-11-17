@@ -9,7 +9,7 @@ spring:
   profiles:
     active: LOCAL
   mail:
-    host: smtprelay.mhf.mhc
+    host: 
     port: 25
     properties:
       mail:
@@ -21,8 +21,8 @@ spring:
     admin:
       notify:
         mail:
-          to: koteshwara.sastry@spglobal.com
-          from: spdji-data-admin-service-dev@spglobal.com
+          to: 
+          from: 
           enabled: true
       routes:
         endpoints: env, metrics, trace, jolokia, info, configprops        
@@ -30,6 +30,6 @@ spring:
         ignored-services: ${spring.application.name}
   security:
     user:
-      name: admin
-      password: admin
+      name: 
+      password: 
 
