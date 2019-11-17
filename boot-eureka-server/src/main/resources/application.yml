@@ -25,18 +25,14 @@ spring:
     active: LOCAL
   boot:
     admin:
-      username: admin
-      password: admin
+      username: 
+      password: 
   mail:
-    host: smtprelay.mhf.mhc
+    host: 
     port: 25
     properties:
       mail:
         smtp:
           auth: false
         starttls:
-          enable: true  
-##  security:
-##    user:
-##      name: eureka
-##     password: password
+          enable: true
